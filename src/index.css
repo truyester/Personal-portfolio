@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- COLORES (Extraídos de tu Azure y White) --- */
+  --color-background-main: #10131a;    /* azure.8 */
+  --color-background-surface: #191c22; /* azure.12 */
+  --color-background-card: #1d2026;    /* azure.13 o surface-container */
+  
+  --color-on-surface: #e1e2eb;
+  --color-on-surface-variant: rgba(225, 226, 235, 0.7);
+
+  /* --- ACENTOS (Basados en tu diseño Hero) --- */
+  --color-brand-primary: #10B981; /* Emerald */
+  --color-brand-secondary: #00daf3; /* Cyan */
+
+  /* --- TIPOGRAFÍA (Según tu DESIGN.md) --- */
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+  --font-space: "Space Grotesk", monospace;
+
+  /* --- OPACIDAD (Basado en tus tokens de Opacity) --- */
+  --opacity-60: 0.6;
+  --opacity-70: 0.7;
+  /* Color del panel de cristal basado en tu paleta dark */
+  --color-glass-surface: rgba(50, 53, 60, 0.4);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background-main);
+    color: var(--color-on-surface);
+    font-family: var(--font-sans);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .floating-label-input:focus-within label,
+  .floating-label-input input:not(:placeholder-shown) + label,
+  .floating-label-input textarea:not(:placeholder-shown) + label {
+    @apply -translate-y-7 scale-85 text-brand-primary; 
+  }
+  .glass-panel {
+    background: var(--color-glass-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
