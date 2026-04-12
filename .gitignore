@@ -22,3 +22,51 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# --- WSL / Windows Specific ---
+# Ignora los metadatos de zona de Windows
+*:Zone.Identifier
+# Archivos temporales de miniatura de Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- OS Specific ---
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- Node / Package Managers ---
+node_modules/
+jspm_packages/
+# Logs de error
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Production / Build ---
+dist/
+build/
+out/
+.vercel
+.netlify
+
+# --- Environment / Secrets ---
+# ¡CRÍTICO! Nunca subas tus credenciales
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+
+# --- IDE / Editors ---
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
