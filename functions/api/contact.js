@@ -4,15 +4,15 @@ export async function onRequestPost(context) {
   try {
     const { name, email, message } = await request.json();
 
-    // 1. Validación básica (Perfecto como lo tenías)
+    // 1. Validación de seguridad
     if (!name || !email || !message) {
-      return new Response(JSON.stringify({ error: "Faltan campos" }), {
+      return new Response(JSON.stringify({ error: "Campos incompletos" }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    // 2. Envío directo a la API de Resend vía Fetch
+    // 2. Envío a la API de Resend usando tus variables de entorno (.env)
     const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -20,18 +20,29 @@ export async function onRequestPost(context) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Orbita Digital <onboarding@resend.dev>',
-        to: ['orbitasolucionesdigitales@gmail.com'],
-        subject: `Nueva consulta: ${name}`,
+        // Mantenemos onboarding@resend.dev hasta que verifiques tu propio dominio
+        from: 'William Dev Personal Portfolio <onboarding@resend.dev>',
+        to: [env.RECIPIENT_EMAIL], 
+        reply_to: email, // Para que puedas responderle directamente al cliente
+        subject: `System Connection: ${name}`,
         html: `
-          <div style="font-family: sans-serif; padding: 20px; color: #132d46;">
-            <h2 style="color: #3ba597;">Nuevo mensaje de contacto</h2>
-            <p><strong>Nombre:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p style="margin-top: 20px;"><strong>Mensaje:</strong></p>
-            <div style="background: #f2efef; padding: 15px; border-radius: 8px;">
-              ${message}
+          <div style="font-family: sans-serif; padding: 40px; background-color: #10131a; color: #e1e2eb; border-radius: 12px;">
+            <h2 style="color: #10B981; border-bottom: 1px solid #1d2026; padding-bottom: 15px;">
+              NEW INQUIRY DETECTED
+            </h2>
+            <div style="margin-top: 25px;">
+              <p><strong>Origin:</strong> ${name}</p>
+              <p><strong>Identity:</strong> ${email}</p>
             </div>
+            <div style="margin-top: 30px; background-color: #1d2026; padding: 20px; border-radius: 8px; border-left: 4px solid #00daf3;">
+              <p style="color: #00daf3; font-size: 11px; text-transform: uppercase; margin-bottom: 10px; font-weight: bold;">
+                Message Payload:
+              </p>
+              <p style="line-height: 1.6;">${message}</p>
+            </div>
+            <p style="margin-top: 40px; font-size: 9px; color: rgba(225,226,235,0.2); text-transform: uppercase; letter-spacing: 3px; text-align: center;">
+              -- End of Transmission --
+            </p>
           </div>
         `,
       }),
@@ -49,7 +60,7 @@ export async function onRequestPost(context) {
     });
 
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error: error.message }), { 
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });
