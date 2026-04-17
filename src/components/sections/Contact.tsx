@@ -16,7 +16,8 @@ const Contact = () => {
     setStatus('SENDING');
 
     try {
-      const response = await fetch('https://tu-worker.workers.dev/api/contact', {
+      // Conexión directa con la carpeta functions/api/contact.js
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -25,12 +26,15 @@ const Contact = () => {
       if (response.ok) {
         setStatus('SUCCESS');
         setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setStatus('IDLE'), 5000); // Reset de estado tras 5 seg
+        // El sistema vuelve al estado inicial tras 5 segundos
+        setTimeout(() => setStatus('IDLE'), 5000);
       } else {
+        const errorData = await response.json();
+        console.error('System Response Error:', errorData);
         setStatus('ERROR');
       }
     } catch (error) {
-      console.error('Transmission Error:', error);
+      console.error('Transmission Failure:', error);
       setStatus('ERROR');
     }
   };
@@ -55,19 +59,19 @@ const Contact = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <a href="https://github.com/truyester" target="_blank" className="group p-6 bg-background-surface rounded-xl border border-on-surface/5 transition-all duration-500 hover:bg-background-card">
+              <a href="https://github.com/truyester" target="_blank" rel="noreferrer" className="group p-6 bg-background-surface rounded-xl border border-on-surface/5 transition-all duration-500 hover:bg-background-card">
                 <div className="flex justify-between items-start mb-8">
                   <img src={iconTerminal} alt="Terminal" className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
-                  <img src={iconArrowOutward} alt="Arrow Outward" className="w-4 h-4 object-contain text-on-surface/20 group-hover:text-brand-primary transition-colors" />
+                  <img src={iconArrowOutward} alt="" className="w-4 h-4 object-contain text-on-surface/20 group-hover:text-brand-primary transition-colors" />
                 </div>
                 <span className="font-space text-xs uppercase tracking-widest text-on-surface-variant">Repository</span>
                 <span className="font-sans font-bold text-base text-on-surface">GitHub</span>
               </a>
               
-              <a href="https://www.linkedin.com/in/william-dev-ven/" target="_blank" className="group p-6 bg-background-surface rounded-xl border border-on-surface/5 transition-all duration-500 hover:bg-background-card">
+              <a href="https://www.linkedin.com/in/william-dev-ven/" target="_blank" rel="noreferrer" className="group p-6 bg-background-surface rounded-xl border border-on-surface/5 transition-all duration-500 hover:bg-background-card">
                 <div className="flex justify-between items-start mb-8">
                   <img src={iconShare} alt="Share" className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
-                  <img src={iconArrowOutward} alt="Arrow Outward" className="w-4 h-4 object-contain text-on-surface/20 group-hover:text-brand-primary transition-colors" />
+                  <img src={iconArrowOutward} alt="" className="w-4 h-4 object-contain text-on-surface/20 group-hover:text-brand-primary transition-colors" />
                 </div>
                 <span className="font-space text-xs uppercase tracking-widest text-on-surface-variant">Network</span>
                 <span className="font-sans font-bold text-base text-on-surface">LinkedIn</span>
@@ -128,16 +132,26 @@ const Contact = () => {
                 <button 
                   type="submit" 
                   disabled={status === 'SENDING'}
-                  className={`group relative inline-flex items-center justify-center px-10 py-4 font-bold rounded-lg overflow-hidden transition-all duration-300 ${status === 'SENDING' ? 'bg-on-surface/10 cursor-wait' : 'bg-brand-primary text-background-main hover:scale-[1.02]'}`}
+                  className={`group relative inline-flex items-center justify-center px-10 py-4 font-bold rounded-lg overflow-hidden transition-all duration-300 ${
+                    status === 'SENDING' ? 'bg-on-surface/10 cursor-wait' : 'bg-brand-primary text-background-main hover:scale-[1.02]'
+                  }`}
                 >
                   <span className="relative z-10 flex items-center gap-3 uppercase font-space tracking-widest text-sm">
                     {status === 'SENDING' ? 'Transmitting...' : 'Send Message'}
-                    <img src={iconSend} alt="Send" className="w-4 h-4 object-contain brightness-0 transition-transform group-hover:translate-x-1" />
+                    <img src={iconSend} alt="" className="w-4 h-4 object-contain brightness-0 transition-transform group-hover:translate-x-1" />
                   </span>
                 </button>
                 
-                {status === 'SUCCESS' && <p className="text-brand-primary font-space text-xs animate-pulse">SYSTEM: Message received. Connection established.</p>}
-                {status === 'ERROR' && <p className="text-red-500 font-space text-xs">ERROR: Connection failed. Please try again.</p>}
+                {status === 'SUCCESS' && (
+                  <p className="text-brand-primary font-space text-xs animate-pulse">
+                    SYSTEM: Message received. Connection established.
+                  </p>
+                )}
+                {status === 'ERROR' && (
+                  <p className="text-red-500 font-space text-xs">
+                    ERROR: Connection failed. Check logs or try again.
+                  </p>
+                )}
               </div>
             </form>
 
