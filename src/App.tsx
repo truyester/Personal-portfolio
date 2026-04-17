@@ -1,10 +1,13 @@
 // src/App.tsx
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import Experience from './components/sections/Experience.tsx';
 import Projects from './components/sections/Projects';
 import Stack from './components/sections/Stack';
 import Contact from './components/sections/Contact';
+
+
 
 function App() {
   return (
@@ -19,12 +22,8 @@ function App() {
         <Projects />
         <Stack />
         <Contact />
-        {/* Aquí renderizaremos: <Expertise /> */}
-        {/* Aquí renderizaremos: <Work /> */}
       </div>
-
-      {/* El Footer irá aquí */}
-
+      <Footer/>
     </main>
   );
 }

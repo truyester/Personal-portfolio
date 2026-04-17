@@ -36,10 +36,13 @@
 }
 
 @layer utilities {
+  .floating-label-input {
+    overflow: visible;
+  }
   .floating-label-input:focus-within label,
   .floating-label-input input:not(:placeholder-shown) + label,
   .floating-label-input textarea:not(:placeholder-shown) + label {
-    @apply -translate-y-7 scale-85 text-brand-primary; 
+    @apply -translate-y-7 scale-85 text-brand-primary;
   }
   .glass-panel {
     background: var(--color-glass-surface);

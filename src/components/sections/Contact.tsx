@@ -1,12 +1,44 @@
+import React, { useState } from 'react';
 import portrait from '../../assets/images/william-portrait.webp';
 
-// 1. IMPORTA TUS ICONOS AQUÍ
+// Activos
 import iconTerminal from '../../assets/icons/terminal.svg';
 import iconShare from '../../assets/icons/share.svg';
 import iconSend from '../../assets/icons/send.svg';
 import iconArrowOutward from '../../assets/icons/arrow_outward.svg';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'IDLE' | 'SENDING' | 'SUCCESS' | 'ERROR'>('IDLE');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('SENDING');
+
+    try {
+      const response = await fetch('https://tu-worker.workers.dev/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('SUCCESS');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus('IDLE'), 5000); // Reset de estado tras 5 seg
+      } else {
+        setStatus('ERROR');
+      }
+    } catch (error) {
+      console.error('Transmission Error:', error);
+      setStatus('ERROR');
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
   return (
     <section id="contact" className="py-32 bg-background-main">
       <div className="max-w-7xl mx-auto px-8">
@@ -22,11 +54,9 @@ const Contact = () => {
               </p>
             </div>
 
-            {/* BENTO BOXES CON TUS ICONOS PNG */}
             <div className="grid grid-cols-2 gap-4">
-              <a href="#" className="group p-6 bg-background-surface rounded-xl border border-on-surface/5 transition-all duration-500 hover:bg-background-card">
+              <a href="https://github.com/truyester" target="_blank" className="group p-6 bg-background-surface rounded-xl border border-on-surface/5 transition-all duration-500 hover:bg-background-card">
                 <div className="flex justify-between items-start mb-8">
-                  {/* ICONO TERMINAL PNG */}
                   <img src={iconTerminal} alt="Terminal" className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
                   <img src={iconArrowOutward} alt="Arrow Outward" className="w-4 h-4 object-contain text-on-surface/20 group-hover:text-brand-primary transition-colors" />
                 </div>
@@ -34,9 +64,8 @@ const Contact = () => {
                 <span className="font-sans font-bold text-base text-on-surface">GitHub</span>
               </a>
               
-              <a href="#" className="group p-6 bg-background-surface rounded-xl border border-on-surface/5 transition-all duration-500 hover:bg-background-card">
+              <a href="https://www.linkedin.com/in/william-dev-ven/" target="_blank" className="group p-6 bg-background-surface rounded-xl border border-on-surface/5 transition-all duration-500 hover:bg-background-card">
                 <div className="flex justify-between items-start mb-8">
-                  {/* ICONO SHARE PNG */}
                   <img src={iconShare} alt="Share" className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
                   <img src={iconArrowOutward} alt="Arrow Outward" className="w-4 h-4 object-contain text-on-surface/20 group-hover:text-brand-primary transition-colors" />
                 </div>
@@ -47,12 +76,15 @@ const Contact = () => {
           </div>
 
           <div className="lg:col-span-7 bg-background-card rounded-2xl p-8 md:p-12 shadow-2xl relative border border-on-surface/5">
-            <form className="space-y-10 relative z-10">
+            <form onSubmit={handleSubmit} className="space-y-10 relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative floating-label-input group">
                   <input
                     type="text"
                     id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
                     placeholder=" "
                     className="block w-full px-0 py-4 bg-transparent border-0 border-b-2 border-on-surface/10 focus:ring-0 focus:border-brand-primary transition-all duration-300 text-on-surface placeholder-transparent font-sans"
                   />
@@ -65,6 +97,9 @@ const Contact = () => {
                   <input
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                     placeholder=" "
                     className="block w-full px-0 py-4 bg-transparent border-0 border-b-2 border-on-surface/10 focus:ring-0 focus:border-brand-primary transition-all duration-300 text-on-surface placeholder-transparent font-sans"
                   />
@@ -77,6 +112,9 @@ const Contact = () => {
               <div className="relative floating-label-input group">
                 <textarea
                   id="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                   rows={4}
                   placeholder=" "
                   className="block w-full px-0 py-4 bg-transparent border-0 border-b-2 border-on-surface/10 focus:ring-0 focus:border-brand-primary transition-all duration-300 text-on-surface placeholder-transparent resize-none font-sans"
@@ -86,13 +124,20 @@ const Contact = () => {
                 </label>
               </div>
 
-              <div className="pt-4">
-                <button type="submit" className="group relative inline-flex items-center justify-center px-10 py-4 bg-brand-primary text-background-main font-bold rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02]">
+              <div className="pt-4 flex flex-col gap-4">
+                <button 
+                  type="submit" 
+                  disabled={status === 'SENDING'}
+                  className={`group relative inline-flex items-center justify-center px-10 py-4 font-bold rounded-lg overflow-hidden transition-all duration-300 ${status === 'SENDING' ? 'bg-on-surface/10 cursor-wait' : 'bg-brand-primary text-background-main hover:scale-[1.02]'}`}
+                >
                   <span className="relative z-10 flex items-center gap-3 uppercase font-space tracking-widest text-sm">
-                    Send Message
+                    {status === 'SENDING' ? 'Transmitting...' : 'Send Message'}
                     <img src={iconSend} alt="Send" className="w-4 h-4 object-contain brightness-0 transition-transform group-hover:translate-x-1" />
                   </span>
                 </button>
+                
+                {status === 'SUCCESS' && <p className="text-brand-primary font-space text-xs animate-pulse">SYSTEM: Message received. Connection established.</p>}
+                {status === 'ERROR' && <p className="text-red-500 font-space text-xs">ERROR: Connection failed. Please try again.</p>}
               </div>
             </form>
 
@@ -101,7 +146,7 @@ const Contact = () => {
                 <img src={portrait} alt="William" className="w-10 h-10 rounded-full object-cover grayscale opacity-70 border border-on-surface/10" />
                 <div>
                   <p className="text-xs font-space uppercase tracking-widest text-on-surface-variant">Direct Inquiry</p>
-                  <p className="text-sm font-bold text-on-surface">hello@kineticarchitect.io</p>
+                  <p className="text-sm font-bold text-on-surface">william29854mendoza@gmail.com</p>
                 </div>
               </div>
               <div className="text-right">

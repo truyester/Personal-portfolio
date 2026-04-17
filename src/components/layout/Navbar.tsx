@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Navbar = () => {
   const [language, setLanguage] = useState<'EN' | 'ES'>('EN');
@@ -12,7 +12,7 @@ const Navbar = () => {
         {/* LOGO: Identidad de Marca (Ajustado a text-xl y tracking-tighter) */}
         <div className="group cursor-pointer">
           <div className="text-xl font-bold tracking-tighter text-on-surface font-sans uppercase">
-            The Kinetic <span className="text-brand-primary">Architect</span>
+            WILLIAM <span className="text-brand-primary">DEV</span>
           </div>
           {/* Línea decorativa reactiva */}
           <div className="h-[1px] w-0 group-hover:w-full bg-brand-primary transition-all duration-500 opacity-50"></div>
