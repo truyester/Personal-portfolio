@@ -1,3 +1,7 @@
+import assistant from '../../assets/images/code-assistant.webp';
+import iconArrowOutward from '../../assets/icons/arrow_outward.svg';
+import orbitadigitalsolutions from '../../assets/images/orbitadigitalsolutions.webp';
+
 const Projects = () => {
   const projects = [
     {
@@ -5,15 +9,14 @@ const Projects = () => {
       category: "Full-Stack Ecosystem",
       description: "Plataforma escalable para servicios digitales con optimización de Core Web Vitals y arquitectura basada en componentes reactivos.",
       tags: ["React", "Next.js", "Tailwind", "Vite"],
-      // Reemplaza con tus capturas reales en public/projects/
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
+      image: orbitadigitalsolutions
     },
     {
-      title: "Nexus Core System",
-      category: "Data Architecture",
-      description: "Dashboard de análisis técnico con procesamiento de datos en tiempo real y seguridad de grado industrial.",
-      tags: ["TypeScript", "Node.js", "PostgreSQL"],
-      image: "https://images.unsplash.com/photo-1551288049-bbda38656a93?auto=format&fit=crop&q=80"
+      title: "Python AI Tutor - Proyecto de Grado",
+      category: "Artificial Intelligence & EdTech",
+      description: "Asistente inteligente diseñado para la enseñanza de Python, utilizando modelos generativos avanzados para proporcionar retroalimentación técnica y ejercicios personalizados en tiempo real.",
+      tags: ["Node.js", "Gemini API", "React", "Cloudflare"],
+      image: assistant
     }
   ];
 
@@ -41,22 +44,31 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div key={index} className="group cursor-pointer">
               
-              {/* Contenedor de Imagen (The Glass Frame) */}
-              <div className="relative aspect-video rounded-2xl overflow-hidden bg-background-card border border-on-surface/5 mb-8 shadow-2xl transition-all duration-500 group-hover:-translate-y-3">
+              {/* Contenedor de Imagen (The Glass Frame - Solución 2) */}
+              <div className="relative aspect-[3/2] rounded-2xl overflow-hidden bg-[#0a0c10] border border-on-surface/5 mb-8 shadow-2xl transition-all duration-500 group-hover:-translate-y-3">
                 
-                {/* Imagen con filtro editorial */}
+                {/* Capa 1: Fondo difuminado para rellenar espacios (especialmente para el asistente que es más cuadrado) */}
                 <img 
                   src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover grayscale contrast-115 opacity-50 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-1000 ease-out"
+                  alt="" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-20 blur-3xl scale-110"
                 />
 
+                {/* Capa 2: Imagen principal contenida (Sin recortes) */}
+                <div className="relative w-full h-full flex items-center justify-center p-4">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="max-w-full max-h-full object-contain grayscale contrast-115 group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out"
+                    />
+                </div>
+
                 {/* Overlay de profundidad atmosférica */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background-main via-transparent to-transparent opacity-90 group-hover:opacity-30 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background-main/40 via-transparent to-transparent opacity-60 pointer-events-none"></div>
                 
                 {/* Icono de acción flotante */}
                 <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-brand-secondary/10 backdrop-blur-md border border-brand-secondary/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                  <span className="material-symbols-outlined text-brand-secondary text-xl">arrow_outward</span>
+                  <img src={iconArrowOutward} alt="" className="w-4 h-4 object-contain" />
                 </div>
               </div>
 
