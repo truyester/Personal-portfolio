@@ -14,7 +14,7 @@ const Projects = () => {
     {
       title: "Python AI Tutor - Proyecto de Grado",
       category: "Artificial Intelligence & EdTech",
-      description: "Asistente inteligente diseñado para la enseñanza de Python, utilizando modelos generativos avanzados para proporcionar retroalimentación técnica y ejercicios personalizados en tiempo real.",
+      description: "Tutor de IA generativa diseñado para optimizar el aprendizaje de Python. Provee retroalimentación técnica y desafíos personalizados en tiempo real.",
       tags: ["Node.js", "Gemini API", "React", "Cloudflare"],
       image: assistant
     }

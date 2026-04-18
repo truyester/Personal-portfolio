@@ -54,18 +54,18 @@ const Contact = () => {
                 Initiate<br/>Connection
               </h1>
               <p className="text-base text-on-surface-variant max-w-md font-light leading-relaxed font-sans">
-                Currently architecting high-performance digital ecosystems. My terminal is open for your next project.
+                Actualmente diseñando ecosistemas digitales de alto rendimiento. Mi terminal está abierta para tu próximo proyecto. 
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <a href="https://github.com/truyester" target="_blank" rel="noreferrer" className="group p-6 bg-background-surface rounded-xl border border-on-surface/5 transition-all duration-500 hover:bg-background-card">
                 <div className="flex justify-between items-start mb-8">
                   <img src={iconTerminal} alt="Terminal" className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
                   <img src={iconArrowOutward} alt="" className="w-4 h-4 object-contain text-on-surface/20 group-hover:text-brand-primary transition-colors" />
                 </div>
-                <span className="font-space text-xs uppercase tracking-widest text-on-surface-variant">Repository</span>
-                <span className="font-sans font-bold text-base text-on-surface">GitHub</span>
+                <span className="block font-space text-xs uppercase tracking-[0.4em] text-on-surface-variant">Repository</span>
+                <span className="block font-sans font-bold text-2xl leading-tight text-on-surface mt-3">GitHub</span>
               </a>
               
               <a href="https://www.linkedin.com/in/william-dev-ven/" target="_blank" rel="noreferrer" className="group p-6 bg-background-surface rounded-xl border border-on-surface/5 transition-all duration-500 hover:bg-background-card">
@@ -73,8 +73,8 @@ const Contact = () => {
                   <img src={iconShare} alt="Share" className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
                   <img src={iconArrowOutward} alt="" className="w-4 h-4 object-contain text-on-surface/20 group-hover:text-brand-primary transition-colors" />
                 </div>
-                <span className="font-space text-xs uppercase tracking-widest text-on-surface-variant">Network</span>
-                <span className="font-sans font-bold text-base text-on-surface">LinkedIn</span>
+                <span className="block font-space text-xs uppercase tracking-[0.4em] text-on-surface-variant">Network</span>
+                <span className="block font-sans font-bold text-2xl leading-tight text-on-surface mt-3">LinkedIn</span>
               </a>
             </div>
           </div>
@@ -155,12 +155,12 @@ const Contact = () => {
               </div>
             </form>
 
-            <div className="mt-16 pt-8 border-t border-on-surface/5 flex flex-wrap gap-6 items-center justify-between">
-              <div className="flex items-center gap-4">
+            <div className="mt-16 pt-8 border-t border-on-surface/5 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+              <div className="flex min-w-0 items-center gap-4">
                 <img src={portrait} alt="William" className="w-10 h-10 rounded-full object-cover grayscale opacity-70 border border-on-surface/10" />
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-space uppercase tracking-widest text-on-surface-variant">Direct Inquiry</p>
-                  <p className="text-sm font-bold text-on-surface">william29854mendoza@gmail.com</p>
+                  <p className="text-sm font-bold text-on-surface break-words max-w-[18rem] sm:max-w-full whitespace-normal">william29854mendoza@gmail.com</p>
                 </div>
               </div>
               <div className="text-right">

@@ -29,12 +29,12 @@ const Hero = () => {
 
         {/* The Kinetic Triggers (Botones) */}
         <div className="flex flex-wrap gap-4 pt-4">
-          <button className="px-8 py-4 bg-brand-primary text-background-main font-bold rounded-lg hover:bg-brand-secondary transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_30px_rgba(0,218,243,0.4)] hover:-translate-y-1 cursor-pointer">
+          <a href="#projects" className="px-8 py-4 bg-brand-primary text-background-main font-bold rounded-lg hover:bg-brand-secondary transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_30px_rgba(0,218,243,0.4)] hover:-translate-y-1 cursor-pointer inline-flex items-center justify-center">
             Ver Proyectos
-          </button>
-          <button className="px-8 py-4 bg-background-surface text-brand-primary font-bold rounded-lg border border-brand-primary/20 hover:border-brand-primary/60 transition-all duration-300 cursor-pointer">
+          </a>
+          <a href="#contact" className="px-8 py-4 bg-background-surface text-brand-primary font-bold rounded-lg border border-brand-primary/20 hover:border-brand-primary/60 transition-all duration-300 cursor-pointer inline-flex items-center justify-center">
             Contactar
-          </button>
+          </a>
         </div>
       </div>
 

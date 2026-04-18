@@ -1,12 +1,13 @@
+import iconArrowOutward from '../../assets/icons/arrow_outward.svg';
 
 const Experience = () => {
   const jobs = [
     {
       role: "Freelance Web Developer",
-      company: "Orbita Digital Solutions",
+      company: "Independent",
       period: "2020 — PRESENT",
-      description: "Desarrollo de ecosistemas web de alto rendimiento. Especializado en transformar reglas de negocio complejas en interfaces elegantes con React y Next.js.",
-      tags: ["React", "Next.js", "Tailwind", "System Design"]
+      description: "Desarrollo de ecosistemas web de alto rendimiento. Especializado en transformar reglas de negocio complejas en interfaces elegantes con React, TypeScript, y Next.js.",
+      tags: ["React", "Next.js", "Tailwind", "System Design", "Figma", "TypeScript"]
     },
     {
       role: "Freelance Legal Translator",
@@ -54,9 +55,7 @@ const Experience = () => {
                 <span className="text-[10px] font-space tracking-widest text-brand-secondary font-bold uppercase">
                   {job.period}
                 </span>
-                <span className="material-symbols-outlined text-on-surface/20 group-hover:text-brand-primary transition-colors">
-                  terminal
-                </span>
+                  <img src={iconArrowOutward} alt="" className="w-4 h-4 object-contain" />
               </div>
 
               <h4 className="text-2xl font-bold text-on-surface mb-2 font-sans group-hover:text-brand-primary transition-colors">
