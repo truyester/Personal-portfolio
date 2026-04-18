@@ -1,24 +1,14 @@
+import { useLanguage } from '../hooks/useLanguage';
 import assistant from '../../assets/images/code-assistant.webp';
 import iconArrowOutward from '../../assets/icons/arrow_outward.svg';
 import orbitadigitalsolutions from '../../assets/images/orbitadigitalsolutions.webp';
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "Orbita Digital Solutions",
-      category: "Full-Stack Ecosystem",
-      description: "Plataforma escalable para servicios digitales con optimización de Core Web Vitals y arquitectura basada en componentes reactivos.",
-      tags: ["React", "Next.js", "Tailwind", "Vite"],
-      image: orbitadigitalsolutions
-    },
-    {
-      title: "Python AI Tutor - Proyecto de Grado",
-      category: "Artificial Intelligence & EdTech",
-      description: "Tutor de IA generativa diseñado para optimizar el aprendizaje de Python. Provee retroalimentación técnica y desafíos personalizados en tiempo real.",
-      tags: ["Node.js", "Gemini API", "React", "Cloudflare"],
-      image: assistant
-    }
-  ];
+  const { locale, t } = useLanguage();
+  const projects = locale.projects.items.map((item: any, index: number) => ({
+    ...item,
+    image: index === 0 ? orbitadigitalsolutions : assistant,
+  }));
 
   return (
     <section id="projects" className="py-32 bg-background-main">
@@ -28,14 +18,14 @@ const Projects = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div className="space-y-4">
             <h2 className="text-sm font-space tracking-[0.4em] text-brand-secondary uppercase">
-              Featured Case Studies
+              {t('projects.label')}
             </h2>
             <h3 className="text-4xl md:text-6xl font-black text-on-surface font-sans">
-              Selected <span className="text-on-surface/40">Work.</span>
+              {t('projects.headline')}
             </h3>
           </div>
           <div className="text-on-surface-variant font-space text-[10px] tracking-[0.3em] uppercase border-b border-brand-secondary/30 pb-2">
-            Systems Engineering / 2024
+            {t('projects.metadata')}
           </div>
         </div>
 
@@ -91,7 +81,7 @@ const Projects = () => {
 
                 {/* Chips de Tecnología (Technical Tokens) */}
                 <div className="flex flex-wrap gap-4 pt-4">
-                  {project.tags.map((tag, i) => (
+                  {project.tags.map((tag: string, i: number) => (
                     <span key={i} className="text-[9px] font-space text-on-surface/30 uppercase tracking-[0.2em] border-l border-on-surface/10 pl-3">
                       {tag}
                     </span>

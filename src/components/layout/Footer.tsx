@@ -1,5 +1,9 @@
+import { useLanguage } from '../hooks/useLanguage';
+
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
+  const copyText = t('footer.copy').replace('{year}', currentYear.toString());
 
   return (
     <footer className="w-full py-xl bg-background-main border-t border-on-surface/5 px-lg">
@@ -11,8 +15,8 @@ const Footer = () => {
             WILLIAM <span className="text-brand-primary">DEV</span>
           </div>
           <p className="text-[10px] font-space text-on-surface/30 uppercase tracking-[0.2em] leading-relaxed">
-            © {currentYear} Engineered for precision by William Mendoza. <br className="md:hidden" />
-            All rights reserved.
+            {copyText} <br className="md:hidden" />
+            {t('footer.allRights')}
           </p>
         </div>
 
@@ -36,7 +40,7 @@ const Footer = () => {
             href="#" 
             className="text-on-surface/40 hover:text-brand-primary transition-all duration-300 hover:-translate-y-0.5"
           >
-            Terminal
+            {t('footer.terminal')}
           </a>
         </div>
 
@@ -44,8 +48,8 @@ const Footer = () => {
         <div className="hidden lg:block">
           <div className="flex items-center gap-sm px-4 py-2 bg-background-surface rounded-lg border border-on-surface/5 shadow-inner">
             <div className="flex flex-col items-end">
-              <span className="text-[9px] font-mono text-on-surface/20 tracking-widest">BUILD_REF</span>
-              <span className="text-[10px] font-mono text-brand-primary font-bold">v4.1.0-STABLE</span>
+              <span className="text-[9px] font-mono text-on-surface/20 tracking-widest">{t('footer.buildRef')}</span>
+              <span className="text-[10px] font-mono text-brand-primary font-bold">{t('footer.stableVersion')}</span>
             </div>
             <div className="w-[1px] h-6 bg-on-surface/10 mx-1"></div>
             <div className="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></div>
@@ -57,7 +61,7 @@ const Footer = () => {
       {/* Micro-detalle final: Línea de fin de ejecución */}
       <div className="max-w-7xl mx-auto mt-lg text-center md:text-right">
         <span className="text-[9px] font-mono text-on-surface/10 uppercase tracking-[0.5em]">
-          -- End of Line --
+          {t('footer.endOfLine')}
         </span>
       </div>
     </footer>

@@ -1,0 +1,116 @@
+{
+  "navbar": {
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "stack": "Stack",
+    "contact": "Contacto",
+    "en": "EN",
+    "es": "ES"
+  },
+  "hero": {
+    "badge": "Bilingüe (EN/ES) Nivel C2",
+    "name": "William Mendoza.",
+    "title": "Ingeniero de Sistemas.",
+    "description": "Arquitecto de sistemas escalables y de alto rendimiento. Especializado en ecosistemas web con React, Next.js y en convertir reglas de negocio complejas en soluciones digitales elegantes.",
+    "viewProjects": "Ver Proyectos",
+    "contact": "Contactar",
+    "stackLabel": "Stack Principal",
+    "stackValue": "React • Next.js • Tailwind"
+  },
+  "experience": {
+    "label": "Camino Profesional",
+    "headline": "Ingeniería y lenguaje fusionados en soluciones técnicas.",
+    "jobs": [
+      {
+        "role": "Desarrollador Web Freelance",
+        "company": "Independiente",
+        "period": "2020 — PRESENTE",
+        "description": "Construcción de ecosistemas web de alto rendimiento. Especializado en transformar reglas de negocio complejas en interfaces elegantes con React, TypeScript y Next.js.",
+        "tags": ["React", "Next.js", "Tailwind", "Diseño de Sistemas", "Figma", "TypeScript"]
+      },
+      {
+        "role": "Traductor Legal Freelance",
+        "company": "Independiente",
+        "period": "2024 — PRESENTE",
+        "description": "Traducción técnica y legal de alta precisión para documentación de ingeniería y contratos internacionales.",
+        "tags": ["Traducción", "Legal Tech", "Inglés C2"]
+      },
+      {
+        "role": "Profesor de Inglés",
+        "company": "Go English For Everyone",
+        "period": "2022 — 2025",
+        "description": "Instrucción avanzada para profesionales con currículos basados en repetición espaciada y roleplay técnico.",
+        "tags": ["Pedagogía", "Repetición Espaciada", "Dominio C2"]
+      }
+    ]
+  },
+  "projects": {
+    "label": "Casos de Estudio Destacados",
+    "headline": "Trabajo Seleccionado.",
+    "metadata": "Ingeniería de Sistemas / 2024",
+    "items": [
+      {
+        "title": "Orbita Digital Solutions",
+        "category": "Ecosistema Full-Stack",
+        "description": "Plataforma de servicios digitales escalable optimizada para Core Web Vitals con arquitectura reactiva basada en componentes.",
+        "tags": ["React", "Next.js", "Tailwind", "Vite"],
+        "imageAlt": "Orbita Digital Solutions"
+      },
+      {
+        "title": "Python AI Tutor - Proyecto de Grado",
+        "category": "Inteligencia Artificial y EdTech",
+        "description": "Tutor de IA generativa diseñado para optimizar el aprendizaje de Python. Proporciona retroalimentación técnica y desafíos personalizados en tiempo real.",
+        "tags": ["Node.js", "Gemini API", "React", "Cloudflare"],
+        "imageAlt": "Proyecto Tutor IA"
+      }
+    ]
+  },
+  "stack": {
+    "label": "Migas Técnicas",
+    "headline": "El Stack.",
+    "groups": [
+      {
+        "title": "Arquitectura Frontend",
+        "description": "Interfaces de alta fidelidad con foco en la performance de la ruta crítica de renderizado.",
+        "tools": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"]
+      },
+      {
+        "title": "Backend y Sistemas",
+        "description": "Construcción de APIs robustas y diseño de bases de datos bajo principios de escalabilidad.",
+        "tools": ["Node.js", "PostgreSQL", "Firebase", "REST APIs", "GraphQL", "Python"]
+      },
+      {
+        "title": "Herramientas de Ingeniería",
+        "description": "Sistemas de diseño, control de versiones y flujos de despliegue profesional.",
+        "tools": ["Figma", "Git / GitHub", "Docker", "Vercel", "Ubuntu", "Photoshop"]
+      }
+    ]
+  },
+  "contact": {
+    "headline": "Inicia Conexión",
+    "description": "Actualmente diseño ecosistemas digitales de alto rendimiento. Mi terminal está abierta para tu próximo proyecto.",
+    "repository": "Repositorio",
+    "network": "Red",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "fullName": "Nombre Completo",
+    "email": "Correo Electrónico",
+    "message": "Tu Mensaje",
+    "send": "Enviar Mensaje",
+    "sending": "Transmitiendo...",
+    "success": "SISTEMA: Mensaje recibido. Conexión establecida.",
+    "error": "ERROR: Conexión fallida. Verifica los datos o intenta nuevamente.",
+    "directInquiry": "Consulta Directa",
+    "emailAddress": "william29854mendoza@gmail.com",
+    "encryption": "Encriptación",
+    "encryptionValue": "AES-256 SEGURIZADO"
+  },
+  "footer": {
+    "copy": "© {year} Diseñado con precisión por William Mendoza.",
+    "allRights": "Todos los derechos reservados.",
+    "terminal": "Terminal",
+    "buildRef": "BUILD_REF",
+    "stableVersion": "v4.1.0-STABLE",
+    "endOfLine": "-- End of Line --"
+  }
+}

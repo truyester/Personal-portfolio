@@ -1,23 +1,10 @@
 
 
+import { useLanguage } from '../hooks/useLanguage';
+
 const Stack = () => {
-  const stackGroups = [
-    {
-      title: "Frontend Architecture",
-      description: "Interfaces de alta fidelidad con un enfoque en la ruta crítica de renderizado y performance.",
-      tools: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"]
-    },
-    {
-      title: "Backend & Systems",
-      description: "Construcción de APIs robustas y gestión de bases de datos bajo principios de escalabilidad.",
-      tools: ["Node.js", "PostgreSQL", "Firebase", "REST APIs", "GraphQL", "Python"]
-    },
-    {
-      title: "Engineering Tools",
-      description: "Sistemas de diseño, control de versiones y entornos de despliegue profesional.",
-      tools: ["Figma", "Git / GitHub", "Docker", "Vercel", "Ubuntu", "Photoshop"]
-    }
-  ];
+  const { locale, t } = useLanguage();
+  const stackGroups = locale.stack.groups;
 
   return (
     <section id="stack" className="py-32 bg-background-surface/20">
@@ -26,10 +13,10 @@ const Stack = () => {
         {/* Título de Sección */}
         <div className="mb-20 space-y-4">
           <h2 className="text-sm font-space tracking-[0.4em] text-brand-primary uppercase">
-            Technical Breadcrumbs
+            {t('stack.label')}
           </h2>
           <h3 className="text-4xl md:text-5xl font-black text-on-surface font-sans">
-            The <span className="text-on-surface/40">Stack.</span>
+            {t('stack.headline')}
           </h3>
         </div>
 

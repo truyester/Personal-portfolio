@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import portrait from '../../assets/images/william-portrait.webp';
+import { useLanguage } from '../hooks/useLanguage';
 
 // Activos
 import iconTerminal from '../../assets/icons/terminal.svg';
@@ -8,6 +9,7 @@ import iconSend from '../../assets/icons/send.svg';
 import iconArrowOutward from '../../assets/icons/arrow_outward.svg';
 
 const Contact = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'IDLE' | 'SENDING' | 'SUCCESS' | 'ERROR'>('IDLE');
 
@@ -51,10 +53,10 @@ const Contact = () => {
           <div className="lg:col-span-5 space-y-12">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight bg-gradient-to-br from-on-surface to-brand-primary bg-clip-text text-transparent font-sans">
-                Initiate<br/>Connection
+                {t('contact.headline')}
               </h1>
               <p className="text-base text-on-surface-variant max-w-md font-light leading-relaxed font-sans">
-                Actualmente diseñando ecosistemas digitales de alto rendimiento. Mi terminal está abierta para tu próximo proyecto. 
+                {t('contact.description')}
               </p>
             </div>
 
@@ -64,8 +66,8 @@ const Contact = () => {
                   <img src={iconTerminal} alt="Terminal" className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
                   <img src={iconArrowOutward} alt="" className="w-4 h-4 object-contain text-on-surface/20 group-hover:text-brand-primary transition-colors" />
                 </div>
-                <span className="block font-space text-xs uppercase tracking-[0.4em] text-on-surface-variant">Repository</span>
-                <span className="block font-sans font-bold text-2xl leading-tight text-on-surface mt-3">GitHub</span>
+                <span className="block font-space text-xs uppercase tracking-[0.4em] text-on-surface-variant">{t('contact.repository')}</span>
+                <span className="block font-sans font-bold text-2xl leading-tight text-on-surface mt-3">{t('contact.github')}</span>
               </a>
               
               <a href="https://www.linkedin.com/in/william-dev-ven/" target="_blank" rel="noreferrer" className="group p-6 bg-background-surface rounded-xl border border-on-surface/5 transition-all duration-500 hover:bg-background-card">
@@ -73,8 +75,8 @@ const Contact = () => {
                   <img src={iconShare} alt="Share" className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
                   <img src={iconArrowOutward} alt="" className="w-4 h-4 object-contain text-on-surface/20 group-hover:text-brand-primary transition-colors" />
                 </div>
-                <span className="block font-space text-xs uppercase tracking-[0.4em] text-on-surface-variant">Network</span>
-                <span className="block font-sans font-bold text-2xl leading-tight text-on-surface mt-3">LinkedIn</span>
+                <span className="block font-space text-xs uppercase tracking-[0.4em] text-on-surface-variant">{t('contact.network')}</span>
+                <span className="block font-sans font-bold text-2xl leading-tight text-on-surface mt-3">{t('contact.linkedin')}</span>
               </a>
             </div>
           </div>
@@ -93,7 +95,7 @@ const Contact = () => {
                     className="block w-full px-0 py-4 bg-transparent border-0 border-b-2 border-on-surface/10 focus:ring-0 focus:border-brand-primary transition-all duration-300 text-on-surface placeholder-transparent font-sans"
                   />
                   <label htmlFor="name" className="absolute left-0 top-4 text-on-surface-variant pointer-events-none transition-all duration-300 origin-left font-space text-xs uppercase tracking-widest">
-                    Full Name
+                    {t('contact.fullName')}
                   </label>
                 </div>
 
@@ -108,7 +110,7 @@ const Contact = () => {
                     className="block w-full px-0 py-4 bg-transparent border-0 border-b-2 border-on-surface/10 focus:ring-0 focus:border-brand-primary transition-all duration-300 text-on-surface placeholder-transparent font-sans"
                   />
                   <label htmlFor="email" className="absolute left-0 top-4 text-on-surface-variant pointer-events-none transition-all duration-300 origin-left font-space text-xs uppercase tracking-widest">
-                    Email Address
+                    {t('contact.email')}
                   </label>
                 </div>
               </div>
@@ -124,7 +126,7 @@ const Contact = () => {
                   className="block w-full px-0 py-4 bg-transparent border-0 border-b-2 border-on-surface/10 focus:ring-0 focus:border-brand-primary transition-all duration-300 text-on-surface placeholder-transparent resize-none font-sans"
                 ></textarea>
                 <label htmlFor="message" className="absolute left-0 top-4 text-on-surface-variant pointer-events-none transition-all duration-300 origin-left font-space text-xs uppercase tracking-widest">
-                  Your Message
+                  {t('contact.message')}
                 </label>
               </div>
 
@@ -137,19 +139,19 @@ const Contact = () => {
                   }`}
                 >
                   <span className="relative z-10 flex items-center gap-3 uppercase font-space tracking-widest text-sm">
-                    {status === 'SENDING' ? 'Transmitting...' : 'Send Message'}
+                    {status === 'SENDING' ? t('contact.sending') : t('contact.send')}
                     <img src={iconSend} alt="" className="w-4 h-4 object-contain brightness-0 transition-transform group-hover:translate-x-1" />
                   </span>
                 </button>
                 
                 {status === 'SUCCESS' && (
                   <p className="text-brand-primary font-space text-xs animate-pulse">
-                    SYSTEM: Message received. Connection established.
+                    {t('contact.success')}
                   </p>
                 )}
                 {status === 'ERROR' && (
                   <p className="text-red-500 font-space text-xs">
-                    ERROR: Connection failed. Check logs or try again.
+                    {t('contact.error')}
                   </p>
                 )}
               </div>
@@ -159,13 +161,13 @@ const Contact = () => {
               <div className="flex min-w-0 items-center gap-4">
                 <img src={portrait} alt="William" className="w-10 h-10 rounded-full object-cover grayscale opacity-70 border border-on-surface/10" />
                 <div className="min-w-0">
-                  <p className="text-xs font-space uppercase tracking-widest text-on-surface-variant">Direct Inquiry</p>
-                  <p className="text-sm font-bold text-on-surface break-words max-w-[18rem] sm:max-w-full whitespace-normal">william29854mendoza@gmail.com</p>
+                  <p className="text-xs font-space uppercase tracking-widest text-on-surface-variant">{t('contact.directInquiry')}</p>
+                  <p className="text-sm font-bold text-on-surface break-words max-w-[18rem] sm:max-w-full whitespace-normal">{t('contact.emailAddress')}</p>
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-xs font-space uppercase tracking-widest text-on-surface-variant">Encryption</p>
-                <p className="text-xs font-bold text-brand-secondary font-space tracking-widest">AES-256 SECURED</p>
+                <p className="text-xs font-space uppercase tracking-widest text-on-surface-variant">{t('contact.encryption')}</p>
+                <p className="text-xs font-bold text-brand-secondary font-space tracking-widest">{t('contact.encryptionValue')}</p>
               </div>
             </div>
           </div>

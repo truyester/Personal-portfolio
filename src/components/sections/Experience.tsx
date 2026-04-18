@@ -1,29 +1,9 @@
+import { useLanguage } from '../hooks/useLanguage';
 import iconArrowOutward from '../../assets/icons/arrow_outward.svg';
 
 const Experience = () => {
-  const jobs = [
-    {
-      role: "Freelance Web Developer",
-      company: "Independent",
-      period: "2020 — PRESENT",
-      description: "Desarrollo de ecosistemas web de alto rendimiento. Especializado en transformar reglas de negocio complejas en interfaces elegantes con React, TypeScript, y Next.js.",
-      tags: ["React", "Next.js", "Tailwind", "System Design", "Figma", "TypeScript"]
-    },
-    {
-      role: "Freelance Legal Translator",
-      company: "Independent",
-      period: "2024 — PRESENT",
-      description: "Traducción técnica y legal de alta precisión para documentación de ingeniería y contratos internacionales.",
-      tags: ["Translation", "Legal Tech", "English C2"]
-    },
-    {
-      role: "English Language Teacher",
-      company: "Go English For Everyone",
-      period: "2022 — 2025",
-      description: "Instrucción avanzada para profesionales. Implementación de currículos basados en Spaced Repetition y roleplays técnicos.",
-      tags: ["Pedagogy", "Spaced Repetition", "C2 Proficiency"]
-    }
-  ];
+  const { locale, t } = useLanguage();
+  const jobs = locale.experience.jobs;
 
   return (
     <section id="experience" className="py-32 bg-background-surface/30">
@@ -32,10 +12,10 @@ const Experience = () => {
         {/* Encabezado con el estilo "Digital Observatory" */}
         <div className="mb-20">
           <h2 className="text-sm font-space tracking-[0.4em] text-brand-primary uppercase mb-4">
-            Professional Path
+            {t('experience.label')}
           </h2>
           <h3 className="text-4xl md:text-5xl font-black text-on-surface font-sans max-w-2xl">
-            Ingeniería y lenguaje fusionados en <span className="text-on-surface/40">soluciones técnicas.</span>
+            {t('experience.headline')}
           </h3>
         </div>
 

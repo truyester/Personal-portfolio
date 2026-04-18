@@ -1,0 +1,116 @@
+{
+  "navbar": {
+    "experience": "Experience",
+    "projects": "Projects",
+    "stack": "Stack",
+    "contact": "Contact",
+    "en": "EN",
+    "es": "ES"
+  },
+  "hero": {
+    "badge": "Bilingual (EN/ES) C2 Level",
+    "name": "William Mendoza.",
+    "title": "Systems Engineer.",
+    "description": "Scalable, high-performance systems architect. Specialized in web ecosystems with React, Next.js, and in turning complex business rules into elegant digital solutions.",
+    "viewProjects": "View Projects",
+    "contact": "Contact",
+    "stackLabel": "Main Stack",
+    "stackValue": "React • Next.js • Tailwind"
+  },
+  "experience": {
+    "label": "Professional Path",
+    "headline": "Engineering and language fused into technical solutions.",
+    "jobs": [
+      {
+        "role": "Freelance Web Developer",
+        "company": "Independent",
+        "period": "2020 — PRESENT",
+        "description": "Built high-performance web ecosystems. Specialized in transforming complex business rules into elegant interfaces with React, TypeScript, and Next.js.",
+        "tags": ["React", "Next.js", "Tailwind", "System Design", "Figma", "TypeScript"]
+      },
+      {
+        "role": "Freelance Legal Translator",
+        "company": "Independent",
+        "period": "2024 — PRESENT",
+        "description": "Precise technical and legal translation for engineering documentation and international contracts.",
+        "tags": ["Translation", "Legal Tech", "English C2"]
+      },
+      {
+        "role": "English Language Teacher",
+        "company": "Go English For Everyone",
+        "period": "2022 — 2025",
+        "description": "Advanced instruction for professionals with curricula based on spaced repetition and technical roleplay.",
+        "tags": ["Pedagogy", "Spaced Repetition", "C2 Proficiency"]
+      }
+    ]
+  },
+  "projects": {
+    "label": "Featured Case Studies",
+    "headline": "Selected Work.",
+    "metadata": "Systems Engineering / 2024",
+    "items": [
+      {
+        "title": "Orbita Digital Solutions",
+        "category": "Full-Stack Ecosystem",
+        "description": "Scalable digital services platform optimized for Core Web Vitals with component-driven reactive architecture.",
+        "tags": ["React", "Next.js", "Tailwind", "Vite"],
+        "imageAlt": "Orbita Digital Solutions"
+      },
+      {
+        "title": "Python AI Tutor - Capstone Project",
+        "category": "Artificial Intelligence & EdTech",
+        "description": "Generative AI tutor built to optimize Python learning. Provides real-time technical feedback and personalized challenges.",
+        "tags": ["Node.js", "Gemini API", "React", "Cloudflare"],
+        "imageAlt": "AI Tutor Project"
+      }
+    ]
+  },
+  "stack": {
+    "label": "Technical Breadcrumbs",
+    "headline": "The Stack.",
+    "groups": [
+      {
+        "title": "Frontend Architecture",
+        "description": "High-fidelity interfaces focused on render-critical performance.",
+        "tools": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"]
+      },
+      {
+        "title": "Backend & Systems",
+        "description": "Robust API construction and database design built for scalability.",
+        "tools": ["Node.js", "PostgreSQL", "Firebase", "REST APIs", "GraphQL", "Python"]
+      },
+      {
+        "title": "Engineering Tools",
+        "description": "Design systems, version control, and professional deployment workflows.",
+        "tools": ["Figma", "Git / GitHub", "Docker", "Vercel", "Ubuntu", "Photoshop"]
+      }
+    ]
+  },
+  "contact": {
+    "headline": "Initiate Connection",
+    "description": "I design high-performance digital ecosystems. My terminal is open for your next project.",
+    "repository": "Repository",
+    "network": "Network",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "message": "Your Message",
+    "send": "Send Message",
+    "sending": "Transmitting...",
+    "success": "SYSTEM: Message received. Connection established.",
+    "error": "ERROR: Connection failed. Check logs or try again.",
+    "directInquiry": "Direct Inquiry",
+    "emailAddress": "william29854mendoza@gmail.com",
+    "encryption": "Encryption",
+    "encryptionValue": "AES-256 SECURED"
+  },
+  "footer": {
+    "copy": "© {year} Engineered for precision by William Mendoza.",
+    "allRights": "All rights reserved.",
+    "terminal": "Terminal",
+    "buildRef": "BUILD_REF",
+    "stableVersion": "v4.1.0-STABLE",
+    "endOfLine": "-- End of Line --"
+  }
+}
