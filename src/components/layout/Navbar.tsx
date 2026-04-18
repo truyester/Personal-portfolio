@@ -10,13 +10,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
         
         {/* LOGO: Identidad de Marca (Ajustado a text-xl y tracking-tighter) */}
-        <div className="group cursor-pointer">
+        <a href="#hero" className="group cursor-pointer">
           <div className="text-xl font-bold tracking-tighter text-on-surface font-sans uppercase">
             WILLIAM <span className="text-brand-primary">DEV</span>
           </div>
           {/* Línea decorativa reactiva */}
           <div className="h-[1px] w-0 group-hover:w-full bg-brand-primary transition-all duration-500 opacity-50"></div>
-        </div>
+        </a>
 
         {/* NAVEGACIÓN: Links con Inter y tracking-tight */}
         <div className="hidden md:flex items-center gap-8 font-sans font-medium text-[11px] tracking-[0.2em] uppercase text-on-surface-variant">

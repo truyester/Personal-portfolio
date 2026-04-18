@@ -5,7 +5,7 @@ const Hero = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative w-full min-h-[80vh] flex flex-col md:flex-row items-center justify-between gap-12 py-20">
+    <section id="hero" className="relative w-full min-h-[80vh] flex flex-col md:flex-row items-center justify-between gap-12 py-20">
       
       {/* Bloque de Texto (Izquierda) */}
       <div className="flex-1 space-y-8 z-10">
