@@ -21,7 +21,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         // Mantenemos onboarding@resend.dev hasta que verifiques tu propio dominio
-        from: 'William Dev Personal Portfolio <onboarding@resend.dev>',
+        from: 'William Dev Personal Portfolio <contact@truyester.com>',
         to: [env.RECIPIENT_EMAIL], 
         reply_to: email, // Para que puedas responderle directamente al cliente
         subject: `System Connection: ${name}`,
