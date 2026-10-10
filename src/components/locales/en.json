@@ -22,6 +22,13 @@
     "headline": "Engineering and language fused into technical solutions.",
     "jobs": [
       {
+        "role": "English Language Consultant & Tutor",
+        "company": "Preply · Self-employed",
+        "period": "FEB 2026 — PRESENT",
+        "description": "Deliver personalized online English lessons tailored to each student's goals, interests, and proficiency level. Help learners strengthen their communication skills, build confidence, and make practical progress through focused, engaging sessions.",
+        "tags": ["English Teaching", "Language Consulting", "Online Tutoring", "Personalized Learning", "Communication", "English C2"]
+      },
+      {
         "role": "Freelance Web Developer",
         "company": "Independent",
         "period": "2020 — PRESENT",
@@ -62,6 +69,13 @@
         "description": "Generative AI tutor built to optimize Python learning. Provides real-time technical feedback and personalized challenges.",
         "tags": ["Node.js", "Gemini API", "React", "Cloudflare"],
         "imageAlt": "AI Tutor Project"
+      },
+      {
+        "title": "Hi Taxi Dallas",
+        "category": "Mobility & Transportation",
+        "description": "24/7 taxi booking platform in Dallas, serving DFW and Love Field with integrated maps and route planning.",
+        "tags": ["Next.js 14+", "TypeScript", "Tailwind CSS", "Google Maps API", "i18n (ES/EN)", "Cloudflare Pages"],
+        "imageAlt": "Hi Taxi Dallas website"
       }
     ]
   },

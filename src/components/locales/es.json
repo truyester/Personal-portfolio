@@ -22,6 +22,13 @@
     "headline": "Ingeniería y lenguaje fusionados en soluciones técnicas.",
     "jobs": [
       {
+        "role": "Consultor de Inglés y Tutor",
+        "company": "Preply · Autónomo",
+        "period": "FEB 2026 — PRESENTE",
+        "description": "Imparto clases personalizadas de inglés en línea, adaptadas a los objetivos, intereses y nivel de cada estudiante. Les ayudo a fortalecer su comunicación, ganar confianza y avanzar de forma práctica mediante sesiones enfocadas y dinámicas.",
+        "tags": ["Enseñanza de Inglés", "Consultoría Lingüística", "Tutoría en Línea", "Aprendizaje Personalizado", "Comunicación", "Inglés C2"]
+      },
+      {
         "role": "Desarrollador Web Freelance",
         "company": "Independiente",
         "period": "2020 — PRESENTE",
@@ -62,6 +69,13 @@
         "description": "Tutor de IA generativa diseñado para optimizar el aprendizaje de Python. Proporciona retroalimentación técnica y desafíos personalizados en tiempo real.",
         "tags": ["Node.js", "Gemini API", "React", "Cloudflare"],
         "imageAlt": "Proyecto Tutor IA"
+      },
+      {
+        "title": "Hi Taxi Dallas",
+        "category": "Movilidad y Transporte",
+        "description": "Plataforma de reservas de taxi disponible 24/7 en Dallas, con servicio a DFW y Love Field e integración de mapas y rutas.",
+        "tags": ["Next.js 14+", "TypeScript", "Tailwind CSS", "Google Maps API", "i18n (ES/EN)", "Cloudflare Pages"],
+        "imageAlt": "Sitio web de Hi Taxi Dallas"
       }
     ]
   },

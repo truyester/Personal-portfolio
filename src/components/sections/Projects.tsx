@@ -1,13 +1,21 @@
 import { useLanguage } from '../hooks/useLanguage';
-import assistant from '../../assets/images/code-assistant.webp';
+import assistant from '../../assets/images/python-assistant.webp';
 import iconArrowOutward from '../../assets/icons/arrow_outward.svg';
-import orbitadigitalsolutions from '../../assets/images/orbitadigitalsolutions.webp';
+import orbitadigitalsolutions from '../../assets/images/orbita-digital-solutions.webp';
+import hitaxidallas from '../../assets/images/hi-taxi-dallas.webp';
+
+const projectImages = [orbitadigitalsolutions, assistant, hitaxidallas];
+const projectLinks = [
+  'https://www.orbitadigitalsolutions.com/',
+  'https://code-assistant-smoky.vercel.app/',
+  'https://www.hitaxidallas.com/',
+];
 
 const Projects = () => {
   const { locale, t } = useLanguage();
   const projects = locale.projects.items.map((item: any, index: number) => ({
     ...item,
-    image: index === 0 ? orbitadigitalsolutions : assistant,
+    image: projectImages[index],
   }));
 
   return (
@@ -31,8 +39,9 @@ const Projects = () => {
 
         {/* Grid de Proyectos */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          {projects.map((project, index) => (
-            <div key={index} className="group cursor-pointer">
+          {projects.map((project, index) => {
+            const content = (
+              <>
               
               {/* Contenedor de Imagen (The Glass Frame - Solución 2) */}
               <div className="relative aspect-[3/2] rounded-2xl overflow-hidden bg-[#0a0c10] border border-on-surface/5 mb-8 shadow-2xl transition-all duration-500 group-hover:-translate-y-3">
@@ -89,8 +98,21 @@ const Projects = () => {
                 </div>
               </div>
 
-            </div>
-          ))}
+              </>
+            );
+
+            return (
+              <a
+                key={index}
+                href={projectLinks[index]}
+                target="_blank"
+                rel="noreferrer"
+                className="group block cursor-pointer"
+              >
+                {content}
+              </a>
+            );
+          })}
         </div>
 
       </div>
